@@ -27,6 +27,41 @@ namespace Demo
             InitializeComponent();
         }
 
-      
+        private void Btn_AddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            Student aStudent = new Student();
+            store.add(aStudent);
+
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        string selectedStudent;
+
+        private void Btn_Find_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_CourseMark_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_ExamMark_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

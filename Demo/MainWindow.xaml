@@ -3,6 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="10,43,0,0" Name="txtName" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="111,39,0,0" Name="txtName" VerticalAlignment="Top" Width="120" />
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,39,0,0"/>
+        <Label Content="Surname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,70,0,0"/>
+        <Label Content="Date of Birth" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,101,0,0"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="111,73,0,0" x:Name="txtSurname" VerticalAlignment="Top" Width="120" />
+        <Label Content="Add Student" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,0,0,0" FontSize="18"/>
+        <Label Content="Find Student" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,156,0,0" FontSize="18"/>
+        <Button x:Name="Btn_AddStudent" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="111,132,0,0" Click="Btn_AddStudent_Click"/>
+        <Label Content="Student Number" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,195,0,0"/>
+        <TextBox x:Name="txtStudentNo" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="111,198,0,0"/>
+        <Label Content="Course Mark" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,226,0,0"/>
+        <Label Content="Exam Mark" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,257,0,0"/>
+        <TextBox x:Name="txtStudentNo_Copy" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="111,229,0,0"/>
+        <TextBox x:Name="txtStudentNo_Copy1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="111,260,0,0"/>
+        <Button x:Name="Btn_Find" Content="Find" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="236,198,0,0" Click="Btn_Find_Click"/>
+        <Button x:Name="Btn_CourseMark" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="236,229,0,0" Click="Btn_CourseMark_Click"/>
+        <Button x:Name="Btn_ExamMark" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="236,263,0,0" Click="Btn_ExamMark_Click"/>
+        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="316,195,0,0"/>
+        <Label Content="Total Mark" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="316,225,0,0"/>
+        <Button x:Name="Btn_Delete" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="433,264,0,0" Click="Btn_Delete_Click"/>
+        <Label x:Name="lbl_Name" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="433,195,0,0"/>
+        <Label x:Name="lbl_TotalMark" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="433,225,0,0"/>
+        <DatePicker x:Name="txtBirthday" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,101,0,0" Width="120"/>
     </Grid>
 </Window>
