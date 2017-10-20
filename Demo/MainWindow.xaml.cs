@@ -27,41 +27,136 @@ namespace Demo
             InitializeComponent();
         }
 
+        // Adding student
         private void Btn_AddStudent_Click(object sender, RoutedEventArgs e)
         {
             Student aStudent = new Student();
-            store.add(aStudent);
+            string errorMsg = "";
 
             try
             {
-
+                aStudent.FirstName = txtName.Text;
             }
-            catch
+            catch (Exception exception)
             {
-
+                errorMsg += exception.Message + "\n";
             }
+
+            try
+            {
+                aStudent.Surname = txtSurname.Text;
+            }
+            catch (Exception exception)
+            {
+                errorMsg += exception.Message + "\n";
+            }
+
+            try
+            {
+                aStudent.Birthday = txtBirthday.Text;
+            }
+            catch (Exception exception)
+            {
+                errorMsg += exception.Message + "\n";
+            }
+
+            try
+            {
+                aStudent.Matric = Int32.Parse(txtMatric.Text);
+            }
+            catch (Exception exception)
+            {
+                errorMsg += exception.Message + "\n";
+            }
+
+            try
+            {
+                List_Students.Items.Add(aStudent.Matric);
+            }
+            catch { }
+
+            txtName.Clear();
+            txtSurname.Clear();
+            txtMatric.Clear();
         }
 
-        string selectedStudent;
+        Student selectedStudent;
+        int studentMark;
 
         private void Btn_Find_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                selectedStudent = store.find(int.Parse(txtStudentNo.Text));
+                lbl_Name.Content = selectedStudent.FirstName;
+            }
+            catch
+            {
+                MessageBox.Show("Ops, something went wrong, try different student matriculation number");
+            }
+            try
+            {
+                studentMark = selectedStudent.getMark();
+                lbl_TotalMark.Content = studentMark + "%";
+            }
+            catch
+            {
+                MessageBox.Show("Ops, seems like the student didn't the coursework or the exam");
+            }
 
+            txtStudentNo.Clear();
         }
 
         private void Btn_CourseMark_Click(object sender, RoutedEventArgs e)
         {
+            string errorMsg = "";
 
+            try
+            {
+                selectedStudent.CourseMark = Int32.Parse(txtCourseMark.Text);
+            }
+            catch (Exception exception)
+            {
+                errorMsg += exception.Message + "\n";
+            }
+
+            txtCourseMark.Clear();
         }
 
         private void Btn_ExamMark_Click(object sender, RoutedEventArgs e)
         {
+            string errorMsg = "";
+
+            try
+            {
+                selectedStudent.ExamMark = Int32.Parse(txtExamMark.Text);
+            }
+            catch (Exception exception)
+            {
+                errorMsg += exception.Message + "\n";
+                throw;
+            }
+
+            txtExamMark.Clear();
 
         }
 
         private void Btn_Delete_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                // store.delete(selectedStudent);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+
+        private void List_Students_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            txtStudentNo.Text = List_Students.SelectedItem.ToString();
         }
     }
 }
