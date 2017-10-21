@@ -37,47 +37,52 @@ namespace Demo
             {
                 aStudent.FirstName = txtName.Text;
             }
-            catch (Exception exception)
+            catch (Exception except)
             {
-                errorMsg += exception.Message + "\n";
+                errorMsg += except.Message + "\n";
             }
 
             try
             {
                 aStudent.Surname = txtSurname.Text;
             }
-            catch (Exception exception)
+            catch (Exception except)
             {
-                errorMsg += exception.Message + "\n";
+                errorMsg += except.Message + "\n";
             }
 
             try
             {
                 aStudent.Birthday = txtBirthday.Text;
             }
-            catch (Exception exception)
+            catch (Exception except)
             {
-                errorMsg += exception.Message + "\n";
+                errorMsg += except.Message + "\n";
             }
 
             try
             {
-                aStudent.Matric = Int32.Parse(txtMatric.Text);
-            }
-            catch (Exception exception)
-            {
-                errorMsg += exception.Message + "\n";
-            }
-
-            try
-            {
+                aStudent.Matric = int.Parse(txtMatric.Text);
                 List_Students.Items.Add(aStudent.Matric);
             }
-            catch { }
+            catch (Exception except)
+            {
+                errorMsg += except.Message + "\n";
+            }
 
-            txtName.Clear();
-            txtSurname.Clear();
-            txtMatric.Clear();
+            if (!String.IsNullOrEmpty(errorMsg))
+            {
+                MessageBox.Show(errorMsg);
+                return;
+            }
+            else
+            {
+                store.add(aStudent);
+                txtName.Clear();
+                txtSurname.Clear();
+                txtMatric.Clear();
+                txtBirthday.Text = "";
+            }
         }
 
         Student selectedStudent;
@@ -113,11 +118,20 @@ namespace Demo
 
             try
             {
-                selectedStudent.CourseMark = Int32.Parse(txtCourseMark.Text);
+                selectedStudent.CourseMark = int.Parse(txtCourseMark.Text);
+
+                studentMark = selectedStudent.getMark();
+                lbl_TotalMark.Content = studentMark + "%";
             }
-            catch (Exception exception)
+            catch (Exception except)
             {
-                errorMsg += exception.Message + "\n";
+                errorMsg += except.Message + "\n";
+            }
+
+            if (!String.IsNullOrEmpty(errorMsg))
+            {
+                MessageBox.Show(errorMsg);
+                return;
             }
 
             txtCourseMark.Clear();
@@ -129,12 +143,20 @@ namespace Demo
 
             try
             {
-                selectedStudent.ExamMark = Int32.Parse(txtExamMark.Text);
+                selectedStudent.ExamMark = int.Parse(txtExamMark.Text);
+
+                studentMark = selectedStudent.getMark();
+                lbl_TotalMark.Content = studentMark + "%";
             }
-            catch (Exception exception)
+            catch (Exception except)
             {
-                errorMsg += exception.Message + "\n";
-                throw;
+                errorMsg += except.Message + "\n";
+            }
+
+            if (!String.IsNullOrEmpty(errorMsg))
+            {
+                MessageBox.Show(errorMsg);
+                return;
             }
 
             txtExamMark.Clear();
@@ -143,20 +165,21 @@ namespace Demo
 
         private void Btn_Delete_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                // store.delete(selectedStudent);
-            }
-            catch (Exception)
-            {
+            List_Students.Items.Remove(selectedStudent.Matric);
+            store.delete(selectedStudent.Matric);
+            lbl_Name.Content = "";
+            lbl_TotalMark.Content = "";
 
-                throw;
-            }
         }
 
         private void List_Students_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             txtStudentNo.Text = List_Students.SelectedItem.ToString();
+        }
+
+        private void txtMatric_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtMatric.MaxLength = 5;
         }
     }
 }

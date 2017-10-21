@@ -29,6 +29,7 @@
         <ListBox x:Name="List_Students" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="227" Margin="281,39,0,0" SelectionChanged="List_Students_SelectionChanged"/>
         <Label Content="Students" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="281,0,0,0" FontSize="18"/>
         <Label Content="Matriculation No" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,111,0,0"/>
-        <TextBox x:Name="txtMatric" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="111,114,0,0"/>
+        <TextBox x:Name="txtMatric" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="111,114,0,0" TextChanged="txtMatric_TextChanged"/>
+        <Label Content="Selected Student" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="317,192,0,0" FontSize="18"/>
     </Grid>
 </Window>

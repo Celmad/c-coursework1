@@ -87,7 +87,7 @@ namespace BusinessObjects
             {
                 if (value < 0 || value > 40)
                 {
-                    throw new Exception("Please, insert a number between 0 and 20");
+                    throw new Exception("Please, insert a number between 0 and 40");
                 }
                 _examMark = value;
             }
