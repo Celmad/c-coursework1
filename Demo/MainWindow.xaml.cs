@@ -218,5 +218,12 @@ namespace Demo
         {
             txtMatric.MaxLength = 5;
         }
+
+        // Button to open new page with student information, passing store information to the new page
+        private void Btn_SeeAll_Click(object sender, RoutedEventArgs e)
+        {
+            StudentDetails studentDetails = new StudentDetails(store);
+            studentDetails.Show();
+        }
     }
 }

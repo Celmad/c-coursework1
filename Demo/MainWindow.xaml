@@ -31,5 +31,6 @@
         <Label Content="Matriculation No" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,111,0,0"/>
         <TextBox x:Name="txtMatric" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="111,114,0,0" TextChanged="txtMatric_TextChanged"/>
         <Label Content="Selected Student" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="317,192,0,0" FontSize="18"/>
+        <Button x:Name="Btn_SeeAll" Content="See All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="433,162,0,0" Click="Btn_SeeAll_Click"/>
     </Grid>
 </Window>

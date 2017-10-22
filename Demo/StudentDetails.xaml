@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="StudentDetails" Height="300" Width="300">
     <Grid x:Name="List_Students_Details">
-        <ListBox HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="250" Margin="20,10,0,0"/>
+        <ListBox x:Name="List_StudentDetails" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="250" Margin="20,10,0,0"/>
     </Grid>
 </Window>

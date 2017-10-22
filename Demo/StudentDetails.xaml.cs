@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BusinessObjects;
 
 namespace Demo
 {
@@ -18,9 +19,17 @@ namespace Demo
     /// </summary>
     public partial class StudentDetails : Window
     {
-        public StudentDetails()
+        private ModuleList _store;
+
+        public StudentDetails(ModuleList store)
         {
             InitializeComponent();
+            _store = store;
+
+            foreach (Student s in _store)
+            {
+                List_StudentDetails.Items.Add(s);
+            }
         }
     }
 }
