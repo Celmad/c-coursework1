@@ -20,9 +20,9 @@ namespace BusinessObjects
             get { return _matricNo; }
             set
             {
-                if (value > 10001 || value > 50000)
+                if (value < 10001 || value > 50000)
                 {
-                    throw new Exception("Please, insert a number between 10001 and 5000");
+                    throw new Exception("Please, insert a number between 10001 and 50000");
                 }
                 _matricNo = value;
             }

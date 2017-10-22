@@ -22,6 +22,7 @@ namespace Demo
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Creating a list to store students from the ModuleList class
         private ModuleList store = new ModuleList();
 
         public MainWindow()
@@ -199,13 +200,12 @@ namespace Demo
         // Button to delete selected student from the store list and clear labels of selected student
         private void Btn_Delete_Click(object sender, RoutedEventArgs e)
         {
-            List_Students.Items.Remove(selectedStudent.Matric);
             store.delete(selectedStudent.Matric);
             lbl_Name.Content = "";
             lbl_TotalMark.Content = "";
-
+            // List_Students.UnselectAll();
+            // List_Students.Items.Remove(List_Students.SelectedItem);
         }
-
 
         // Selecting student from the ListBox in the main form will write its number in the search box of the Find method
         private void List_Students_SelectionChanged(object sender, SelectionChangedEventArgs e)
