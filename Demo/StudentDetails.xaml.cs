@@ -16,20 +16,21 @@ namespace Demo
 {
     /// <summary>
     /// Interaction logic for StudentDetails.xaml
+    /// 
+    /// Class to create the second window which will contain a grid with the items from student list
     /// </summary>
     public partial class StudentDetails : Window
     {
-        private ModuleList _store;
+        // Creating a new Module List for this new window
+        private ModuleList _store = new ModuleList();
 
+        // Retreiving information from the previous created student list
         public StudentDetails(ModuleList store)
         {
             InitializeComponent();
-            _store = store;
-
-            foreach (Student s in _store)
-            {
-                List_StudentDetails.Items.Add(s);
-            }
+            
+            // Adding Student list items to the datagrid GUI
+            datagrid_show_all.ItemsSource = _store.StudentList;
         }
     }
 }

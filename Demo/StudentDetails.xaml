@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo"
         mc:Ignorable="d"
-        Title="StudentDetails" Height="300" Width="300">
+        Title="StudentDetails" Height="300" Width="504.8">
     <Grid x:Name="List_Students_Details">
-        <ListBox x:Name="List_StudentDetails" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="250" Margin="20,10,0,0"/>
+        <DataGrid x:Name="datagrid_show_all" HorizontalAlignment="Left" Height="184" Margin="10,0,0,0" VerticalAlignment="Top" Width="478"/>
     </Grid>
 </Window>

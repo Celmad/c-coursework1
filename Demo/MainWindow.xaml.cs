@@ -25,6 +25,9 @@ namespace Demo
         // Creating a list to store students from the ModuleList class
         private ModuleList store = new ModuleList();
 
+        // Creating a student at a time
+        Student aStudent = new Student();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -33,8 +36,7 @@ namespace Demo
         // Adding student
         private void Btn_AddStudent_Click(object sender, RoutedEventArgs e)
         {
-            // Store the student that we are creating at the time
-            Student aStudent = new Student();
+
             // Create string to save the existing errors
             string errorMsg = "";
 
@@ -111,8 +113,9 @@ namespace Demo
             // Looking for student and adding its name to a Name label
             try
             {
+                // Take input number and parse it. The result into the find method, which return its student if matriculation number is found
                 selectedStudent = store.find(int.Parse(txtStudentNo.Text));
-                lbl_Name.Content = selectedStudent.FirstName;
+                lbl_Name.Content = selectedStudent.FirstName + " " + selectedStudent.Surname;
             }
             catch
             {
@@ -163,9 +166,12 @@ namespace Demo
 
             // Clear the textbox for the courseMark
             txtCourseMark.Clear();
+
+            // Get total after adding course mark
+            selectedStudent.totall = selectedStudent.getMark();
         }
 
-
+        
         // Button to give the selected student its ExamMark
         private void Btn_ExamMark_Click(object sender, RoutedEventArgs e)
         {
@@ -195,8 +201,10 @@ namespace Demo
             // Clear the textbox for the courseMark
             txtExamMark.Clear();
 
-        }
+            // Get total after adding exam mark
+            selectedStudent.totall = selectedStudent.getMark();
 
+        }
         // Button to delete selected student from the store list and clear labels of selected student
         private void Btn_Delete_Click(object sender, RoutedEventArgs e)
         {
